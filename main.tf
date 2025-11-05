@@ -102,8 +102,8 @@ resource "aws_instance" "ec2" {
     # ... (Seu script de build do Docker)
     cd /home/ubuntu
     rm -rf proway-docker/
-    git clone https://github.com/dartanghan/proway-docker.git
-    cd proway-docker/modulo7-iac_tooling
+    git clone https://github.com/spttleonardo/proway-docker-joais
+    cd proway-docker-joais/modulo7-iac_tooling
     
     docker build -t jewelry-app .
     docker run -d -p 8080:80 jewelry-app
@@ -118,4 +118,5 @@ output "vm_public_ip" {
 
 output "app_url" {
   value = "http://${aws_instance.ec2.public_ip}:8080"
+
 }
